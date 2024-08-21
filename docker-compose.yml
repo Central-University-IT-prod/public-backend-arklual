@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: "postgres"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "secret"
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  redis:
+    image: redis:latest
+    restart: always
+    ports:
+      - "6379:6379"
+    environment:
+      - REDIS_PASSWORD=secret
+      - REDIS_PORT=6379
+      - REDIS_DATABASES=16
+    networks:
+      - postgres
+  bot_service:
+    build: ./
+    networks:
+      - postgres
+    depends_on:
+      db:
+        condition: service_healthy
+
+networks:
+  postgres:
+    driver: bridge

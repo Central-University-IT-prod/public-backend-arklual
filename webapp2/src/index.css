@@ -1,0 +1,31 @@
+:root {
+  --background: #ffffff;
+  --text: #000000;
+  --accent: #0088cc;
+}
+
+.select-container,
+.datepicker-container {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--background);
+  color: var(--text);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.select-container .react-select__control,
+.datepicker-container .react-datepicker__input-container input {
+  background-color: var(--background);
+  color: var(--text);
+  border: 1px solid var(--accent);
+}
+
+.select-container .react-select__menu,
+.datepicker-container .react-datepicker__triangle,
+.datepicker-container .react-datepicker__month-container {
+  background-color: var(--background);
+  color: var(--text);
+}

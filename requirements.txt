@@ -1,0 +1,13 @@
+aiogram==3.4.1
+SQLAlchemy==2.0.28
+psycopg2-binary==2.9.9
+geopy==2.4.1
+python-dateutil==2.9.0
+pillow==10.2.0
+folium==0.16.0
+polyline==2.0.2
+python_weather==2.0.0
+selenium==4.18.1
+gigachat==0.1.21
+redis==5.0.3
+aiogram-media-group==0.5.1
